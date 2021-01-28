@@ -1,0 +1,25 @@
+server:
+  port: 2002
+spring:
+  application:
+    name: seata-storage-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/seata_storage?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 961004
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    alibaba:
+      seata:
+        tx-service-group: zwy_tx_group
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+logging:
+  level:
+    io:
+      seata: info

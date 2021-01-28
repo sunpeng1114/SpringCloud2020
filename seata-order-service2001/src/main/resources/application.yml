@@ -1,0 +1,31 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: seata-order-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/seata_order?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 961004
+    #druid:
+      #validation-query: SELECT 1
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: zwy_tx_group
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  #type-aliases-package: com.jd.springcloud.domain
+feign:
+  hystrix:
+    enabled: false
+logging:
+  level:
+    io:
+      seata: info
